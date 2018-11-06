@@ -1,7 +1,7 @@
 const csvtojson = require("csvtojson");
 const firebase = require('firebase');
 
-const csvFilePath='./DKSalaries (1).csv';
+const csvFilePath='./DKSalaries(week 10).csv';
 const csv = require('csvtojson');
 
 const config = {
@@ -21,10 +21,10 @@ csv()
     .then((jsonArray) => {
         //write to db   
                 const promiseArray = jsonArray.map((player)=>{
-                    return db.collection('weeks').doc('9').collection('players').doc(player.Name).set( player );
+                    return db.collection('weeks').doc('10').collection('players').doc(player.Name).set( player );
                 })
                 Promise.all(promiseArray).then((fullArray)=>{
-                    console.log("done writting to DB...");
+                    console.log("done writting to DB!");
                 })
             // jsonObj.forEach(player => {
                 // let sal = player.Salary;
